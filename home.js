@@ -66,7 +66,7 @@ function Home() {
             </Text>
             <Text fontSize="12" style={{ margin: 16 }}>
                 
-                Seattle Current AQI: {JSON.stringify(aqiData.data.current.pollution.aqius)}
+                Seattle, WA Current AQI: {JSON.stringify(aqiData.data.current.pollution.aqius)}
             </Text>
             <Divider style={{ margin: 16 }} />
             <Text fontSize="12" style={{ margin: 16 }}>

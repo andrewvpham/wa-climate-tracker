@@ -8,8 +8,12 @@ import { Button } from "@react-native-material/core";
 import { Divider } from "@react-native-material/core";
 import { ListItem } from "@react-native-material/core";
 
+//Components
 import Home from './home';
-import Carbon from './carbon';
+import Newsfeed from './newsfeed';
+import Weather from './weather';
+
+
 import { SafeAreaView, StatusBar  } from 'react-native';
 
 
@@ -78,7 +82,16 @@ export default function App() {
            </Link>
            <Divider style={{ margin: 10 }} />
            <Link
-            to="/carbon"
+            to="/newsfeed"
+            underlayColor="#ff0000"
+            style={styles.navItem}
+            onPress={() => { switchState(); setAppTitle('News Feed');}}
+            >
+           <Text style={styles.menuitem}>News Feed</Text>
+           </Link>
+           <Divider style={{ margin: 10 }} />
+           <Link
+            to="/weather"
             underlayColor="#ff0000"
             style={styles.navItem}
             onPress={() => { switchState(); setAppTitle('Carbon Emissions');}}
@@ -93,7 +106,8 @@ export default function App() {
         animationTime={250}>
               <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/carbon" element={<Carbon />} />
+              <Route path="/newsfeed" element={<Newsfeed />} />
+              <Route path="/weather" element={<Weather />} />
             </Routes>
         <View style={styles.body}>
             <View style={{ marginTop: 20, alignItems: 'center', width: '100%', flex: 1 }}>

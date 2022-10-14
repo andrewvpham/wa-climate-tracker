@@ -17,6 +17,17 @@ class ApiService {
             return resp.data;
         })
     }
+
+    async getCarbonEmissions() {
+
+    }
+
+    async getNewsFeed() {
+        return axios.get('https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=washington')
+        .then(resp => {
+            return resp.data;
+        })
+    }
 }
 
 export default new ApiService();
