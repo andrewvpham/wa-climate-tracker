@@ -104,22 +104,9 @@ export default function App() {
             </TouchableOpacity>
           </View>
         </View>
-      </Drawer>
-     
-      <Link
-          to="/carbon"
-          underlayColor="#ff0000"
-          style={styles.navItem}
-      >
-        <Text>About</Text>
-      </Link>
-
-     
-      
+      </Drawer>     
     </SafeAreaView>
-    
     </NativeRouter>
-    
   );
 }
 
