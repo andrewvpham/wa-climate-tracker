@@ -15,7 +15,7 @@ import { SafeAreaView, StatusBar  } from 'react-native';
 
 export default function App() {
   const [value, setValue] = React.useState('recents');
-  const [appTitle, setAppTitle] = React.useState('Home');
+  const [appTitle, setAppTitle] = React.useState('AQI Data');
   const [drawerState, setDrawerState] = React.useState(false);
   const [theme, setTheme] = React.useState(false);
 
@@ -49,7 +49,7 @@ export default function App() {
       color="#4ed970"
       style={styles.appbar}
       title={appTitle}
-      subtitle="Lorem ipsum"
+      subtitle="Washington Climate Tracker"
       centerTitle={true}
       leading={props => (
       <IconButton onPress={switchState} icon={props => <Icon name="menu" {...props} />} {...props} />
@@ -63,43 +63,38 @@ export default function App() {
        
       
     </AppBar>
-    <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/carbon" element={<Carbon />} />
-            </Routes>
+
     <Drawer
         open={drawerState}
         drawerContent={
         <View>
-            <ListItem
-            title="Inbox"
-            leading={<Icon name="inbox" size={24} />}
-            trailing={props => <Icon name="chevron-right" {...props}  />}
-             />
           <Link
-              to="/"
-              underlayColor="#ff0000"
-              style={styles.navItem}
+            to="/"
+            underlayColor="#ff0000"
+            style={styles.navItem}
+            onPress={() => { switchState(); setAppTitle('AQI Data');}}
             >
-          <ListItem
-            title="Drafts"
-            leading={<Icon name="email-open" size={24} />}
-            trailing={props => <Icon name="chevron-right" {...props} />}
-          />
-          </Link>
-    <ListItem
-      title="Trash"
-      trailing={props => <Icon name="chevron-right" {...props} />}
-    />
-    <ListItem
-      title="Spam"
-      trailing={props => <Icon name="chevron-right" {...props} />}
-    />
+           <Text style={styles.menuitem}>AQI Data</Text>
+           </Link>
+           <Divider style={{ margin: 10 }} />
+           <Link
+            to="/carbon"
+            underlayColor="#ff0000"
+            style={styles.navItem}
+            onPress={() => { switchState(); setAppTitle('Carbon Emissions');}}
+            >
+           <Text style={styles.menuitem}>Carbon Emissions</Text>
+           </Link>
+           <Divider style={{ margin: 10 }} />
         </View>
           
         }
         onClose={switchState}
         animationTime={250}>
+              <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/carbon" element={<Carbon />} />
+            </Routes>
         <View style={styles.body}>
             <View style={{ marginTop: 20, alignItems: 'center', width: '100%', flex: 1 }}>
 
@@ -140,5 +135,8 @@ const styles = StyleSheet.create({
   appbar: {
     width: '100%',
     top: 0,
+  },
+  menuitem: {
+    padding: 15,
   }
 });

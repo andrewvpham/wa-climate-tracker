@@ -16,7 +16,7 @@ function Home() {
 
     return (
         <Box>
-            <Text variant="h3" style={{ margin: 16 }}>
+            <Text variant="h4" style={{ margin: 16 }}>
                 AQI Data
             </Text>
             <Button title="Click Me" onPress={() => alert("🎉🎉🎉")}/>

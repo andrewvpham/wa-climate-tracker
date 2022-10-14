@@ -14,7 +14,7 @@ function Carbon() {
 
     return (
         <Box>
-            <Text variant="h3" style={{ margin: 16 }}>
+            <Text variant="h4" style={{ margin: 16 }}>
                 Carbon Emissions
             </Text>
             <Button title="Click Me" onPress={() => alert("🎉🎉🎉")}/>
