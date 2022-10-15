@@ -23,7 +23,14 @@ class ApiService {
     }
 
     async getNewsFeed() {
-        return axios.get('https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=washington state')
+        return axios.get('https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=seattle')
+        .then(resp => {
+            return resp.data;
+        })
+    }
+
+    async getEarthQuakeData() {
+        return axios.get('https://earthquake.usgs.gov/fdsnws/event/1/query?latitude=47.6&longitude=-122.33&maxradiuskm=120&format=geojson')
         .then(resp => {
             return resp.data;
         })

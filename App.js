@@ -15,6 +15,7 @@ import Weather from './weather';
 
 
 import { SafeAreaView, StatusBar  } from 'react-native';
+import EarthQuake from './earthquake';
 
 
 export default function App() {
@@ -91,12 +92,21 @@ export default function App() {
            </Link>
            <Divider style={{ margin: 10 }} />
            <Link
+            to="/earthquake"
+            underlayColor="#ff0000"
+            style={styles.navItem}
+            onPress={() => { switchState(); setAppTitle('Recent Earthquake Data');}}
+            >
+           <Text style={styles.menuitem}>Earthquake</Text>
+           </Link>
+           <Divider style={{ margin: 10 }} />
+           <Link
             to="/weather"
             underlayColor="#ff0000"
             style={styles.navItem}
-            onPress={() => { switchState(); setAppTitle('Carbon Emissions');}}
+            onPress={() => { switchState(); setAppTitle('Weather');}}
             >
-           <Text style={styles.menuitem}>Carbon Emissions</Text>
+           <Text style={styles.menuitem}>Weather</Text>
            </Link>
            <Divider style={{ margin: 10 }} />
         </View>
@@ -107,6 +117,7 @@ export default function App() {
               <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/newsfeed" element={<Newsfeed />} />
+              <Route path="/earthquake" element={<EarthQuake />} />
               <Route path="/weather" element={<Weather />} />
             </Routes>
         <View style={styles.body}>
