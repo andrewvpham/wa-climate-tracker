@@ -5,7 +5,7 @@ import { Box } from "@react-native-material/core";
 import Service from "./service/apiservice"
 import { NativeRouter, Route, Link } from "react-router-native";
 
-function Carbon() {
+function Weather() {
     const [value, setValue] = React.useState('recents');
 
     const handleChange = (event, newValue) => {
@@ -22,4 +22,4 @@ function Carbon() {
     );
 }
 
-export default Carbon;
+export default Weather;

@@ -23,7 +23,7 @@ class ApiService {
     }
 
     async getNewsFeed() {
-        return axios.get('https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=washington')
+        return axios.get('https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=washington state')
         .then(resp => {
             return resp.data;
         })
