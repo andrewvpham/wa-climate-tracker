@@ -24,8 +24,8 @@ function EarthQuake() {
 
     const fetchApiData = async () => {
         const newdata = await Service.getEarthQuakeData()
-        console.log("Recent earthquake location: " + newdata.features[0].properties.title)
-        console.log("Mag: " + newdata.features[0].properties.mag)
+        //console.log("Recent earthquake location: " + newdata.features[0].properties.title)
+        //console.log("Mag: " + newdata.features[0].properties.mag)
         setApiData(newdata);
 
         const listItems2 = newdata.features.map((number) =>
@@ -39,7 +39,7 @@ function EarthQuake() {
         ); 
         //setRenderData(listItems); 
         const listItems = <Text>{newdata.features[0].properties.title}</Text>;
-        console.log(listItems2);
+        //console.log(listItems2);
         setRenderData(listItems2);
       }
 
