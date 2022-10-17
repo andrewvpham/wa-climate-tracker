@@ -15,6 +15,13 @@ function EarthQuake() {
     const [apiData, setApiData] = React.useState();
     const [renderData, setRenderData] = React.useState(<Text>No data yet</Text>);
 
+    const  convertEpochToSpecificTimezone = (timeEpoch, offset) =>{
+        var d = new Date(timeEpoch);
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);  //This converts to UTC 00:00
+        var nd = new Date(utc + (3600000*offset));
+        return nd.toLocaleString();
+    }
+
     const fetchApiData = async () => {
         const newdata = await Service.getEarthQuakeData()
         console.log("Recent earthquake location: " + newdata.features[0].properties.title)
@@ -24,6 +31,7 @@ function EarthQuake() {
         const listItems2 = newdata.features.map((number) =>
         <Box>
             <Text>{number.properties.title}</Text>
+            <Text>{convertEpochToSpecificTimezone(number.properties.time, -8)}</Text>
             <Divider style={{ margin: 16 }} />
         </Box>
               
