@@ -20,12 +20,19 @@ function EarthQuake() {
         console.log("Recent earthquake location: " + newdata.features[0].properties.title)
         console.log("Mag: " + newdata.features[0].properties.mag)
         setApiData(newdata);
-        /*const listItems = newdata.features.map((number) =>
-        <Text>{newdata.features[number].properties.title}</Text>
-        ); */
+
+        const listItems2 = newdata.features.map((number) =>
+        <Box>
+            <Text>{number.properties.title}</Text>
+            <Divider style={{ margin: 16 }} />
+        </Box>
+              
+               
+        ); 
         //setRenderData(listItems); 
         const listItems = <Text>{newdata.features[0].properties.title}</Text>;
-        setRenderData(listItems);
+        console.log(listItems2);
+        setRenderData(listItems2);
       }
 
     

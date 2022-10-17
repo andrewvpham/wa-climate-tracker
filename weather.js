@@ -6,17 +6,31 @@ import Service from "./service/apiservice"
 import { NativeRouter, Route, Link } from "react-router-native";
 
 function Weather() {
-    const [value, setValue] = React.useState('recents');
+    const [apiLoaded, setApiLoaded] = React.useState(false);
+    const [apiData, setApiData] = React.useState(null);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    const fetchApiData = async () => {
+        const newdata = await Service.getWeather()
+        setApiData(newdata.data[0].temp);
+      }
 
+    if(apiLoaded==false) {
+        fetchApiData();
+        setApiLoaded(true);
+    }
+
+    //data[0].temp
     return (
         <Box>
             <Text variant="h6" style={{ margin: 16 }}>
-                Nothing here yet!
+                Seattle current temperature:                
             </Text>
+            <Text fontSize="12" style={{ margin: 16 }}>
+            Celsius: {apiData}
+            {'\n'} 
+            Farenheit: {(apiData * 9/5)+32}
+            </Text>
+            
         </Box>
         
     );

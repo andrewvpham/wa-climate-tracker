@@ -54,7 +54,7 @@ export default function App() {
       color="#4ed970"
       style={styles.appbar}
       title={appTitle}
-      subtitle="Washington Climate Tracker"
+      subtitle="Seattle Climate Tracker"
       centerTitle={true}
       leading={props => (
       <IconButton onPress={switchState} icon={props => <Icon name="menu" {...props} />} {...props} />
