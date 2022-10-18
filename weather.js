@@ -8,10 +8,12 @@ import { NativeRouter, Route, Link } from "react-router-native";
 function Weather() {
     const [apiLoaded, setApiLoaded] = React.useState(false);
     const [apiData, setApiData] = React.useState(null);
+    const [weatherDescription, setweatherDescription] = React.useState(null);
 
     const fetchApiData = async () => {
         const newdata = await Service.getWeather()
         setApiData(newdata.data[0].temp);
+        setweatherDescription(newdata.data[0].weather.description);
       }
 
     if(apiLoaded==false) {
@@ -29,6 +31,8 @@ function Weather() {
             Celsius: {apiData}
             {'\n'} 
             Farenheit: {(apiData * 9/5)+32}
+            {'\n'}
+            Description: {weatherDescription}
             </Text>
             
         </Box>
